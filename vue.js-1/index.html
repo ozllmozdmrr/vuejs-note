@@ -9,7 +9,9 @@
 <body>
     
     <div id="app">
-        <h1>{{ title  }}</h1>
+        <h1>{{ title }}</h1>
+        <hr>
+        <input type="text"  v-on:input="changeTitle">
         <p>{{ description }}</p>
     </div>
 
@@ -35,7 +37,26 @@
 
         <p> Buraya string interpolation (dize ilişkilendirme) denen bir syntax ile yazıyoruz, yani {{ Buraya vue içerisinde tanımladığımız bazı özel property gibi method, veriler gibi özel proptery çağırabiliyoruz.  }}</p>
 
+
+        ----- Kısım 2 ----
+
+        İlk olarak inputun içerisine yazılan herhangi bir karakteri algılamamız lazım.Bu karakterleri algılayabilmek için ilk olarak bir eventi ( event listener veya olay yöneticisi ile ilgili bilgiler yer alıyor.) yakalıyor olmamız gerek.
+        input isimli bir eventşi yakalıyoruz tabi ki burada elementin içerisinde bazı tanımlamalar yapabiliyoruz vue.js den kaynaklı bunlara directive deneniyor.
+        Directive kullanarak biz inputun içerisinde herhangi bir karakter yazıldığında ortaya çıkan eventi yakalayabiliyoruz. O halde bu eventle bir şey tetiklendiğinde başka bir şeyi tetikletebiliriz ... İŞTE BUNU YAPICAZ !
+
+        v-on:input -> Yani "input eventi olduğunda" demek. Şimdi bir şey çalıştırıcak çalıştırıcağı fonksiyonu yazıyoruz. Şimdi fonksiyon çalışıcap peki bunu nasıl belirticez? 
+        Datadan sonra üçüncü vue.js'in kendi içerisinde kullandığı özel property tanımlıcaz.
+
+        methods : buda bş obje ve içerisine fonksiyonlar alıyor.
+
+        **** bizim amacımız description değerini değiştirmek.****
+
+        Data'nın içerisindeki yada vue.js içerisinde herhangi veriye erişmek için "this" anahtar kelimesini kullanabilirsiniz. Daha sonra kolay bir şekilde data'nın, methodlar gibi bir çok property içerisindeki  verilerine ulaşabilirsiniz.
+
+
+
      -->
+
 
 
 
@@ -49,6 +70,11 @@
             data : {
                 title : "Vue.js 1.Ders Notları ",
                 description : "Vue.js Kısaca tanım yapmak gerekirse Vue js client tarafında kullanıcı ara yüzü oluşturmayı sağlayan bir javascript kütüphanesidir."
+            },
+            methods : {
+                changeTitle  : function(event){
+                   this.description = event.target.value;
+                }
             }
         });
     </script>
