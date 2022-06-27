@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> VueJS Template Syntax ve Vue instance birlikte nasıl çalışır?</title>
+</head>
+<body>
+    
+
+<div id="app">
+    <p>
+        {{ hello() }}
+    </p>
+</div>
+
+
+<!-- 
+    Hello isimli bir methodumuz var title kullandığımız gişbi aynı hello yu kullanıcaz.
+    AAMAAA !!
+    Hello bir fonksiyon olduğu için parantez kullanmalıyız.
+ -->
+
+
+
+    <!-- Vue.js Link -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+   <script>
+
+    new Vue({
+        el : "#app",
+        data : {
+            title : "VueJS Template yapısını kavrayalım",
+        },
+        methods : {
+            hello : function() {
+                return "Merhabalar Özlem Özdemir"
+            }
+        }
+    });
+   </script>
+    
+
+
+</body>
+</html>
