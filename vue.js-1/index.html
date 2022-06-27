@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue.js 1.Ders</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -15,6 +14,31 @@
 
 
 
+    <!-- 
+        new Vue(); Demek istediğimiz "artık benim kontrol edebileceğim vue ile kontrol edeceğim küçük uygulamayı başlat " diyoruz .
+
+        PEKİİ NEYİ KONTROL EDİCEZ, NAPICAZ??
+
+        new Vue({}); "()" içerisine constructer (yapılandırıcı) olarak gönderdiğimiz değerler bir javascript obje olarak geliyor bunu için {} kullanıyoruz.
+
+        el isimli props element kelimenin kısaltması yani burada "vue ile beraber hangi html blogunu kontrol altına alıcam" demek bu. 
+        Bu seçme işlemini yapmak için standart seçicileri kullanıcaz ( id , class)... fakat genel olarak bir tane root parent bir container ihtiyacımız var. Bu containerin içerisine kullanabileceğimiz istediğimiz kadar kontrol altına alıcağımız elementleri yazıyoruz. 
+
+        Vue ile id'si app olan divin kontrol altına alıcaz, kontrol altına aldığımızda içerisindeki tüm elementlere istediğimiz gibi erişebiliriz.
+
+
+        data : dediğimiz arkadaş app içerisinde yada vue içerisindeki kullanıcağımız tüm verileri içeren property diyebiliriz. Bu propert karşısına bir obje alıyor, obje almasını sebebi birden fazla değer  alacak olması.
+        
+        title isimli bir dğeişken oluşturduk ve ben bunu app veya js içerisinde kullanabilirim. 
+        biz bunu "p" içerisine yazalım tabi bunun birden fazla yolu var, biz ilkini yapalım.
+
+        <p> Buraya string interpolation (dize ilişkilendirme) denen bir syntax ile yazıyoruz, yani {{ Buraya vue içerisinde tanımladığımız bazı özel property gibi method, veriler gibi özel proptery çağırabiliyoruz.  }}</p>
+
+     -->
+
+
+
+    
     <!-- Vue.js Link -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
@@ -22,7 +46,7 @@
         new Vue({
             el : "#app",
             data : {
-                title : "vue.js öğrenmeliyim çünkü güzel duruyo"
+                title : "Vue.js 1.Ders Notları "
             }
         });
     </script>
