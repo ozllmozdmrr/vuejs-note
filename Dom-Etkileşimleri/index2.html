@@ -17,7 +17,7 @@
 
 
 <!-- 
-    Daha önceki derste template ile instense arasındaki iletişimi gördük. Şimdi İnstense içerisindeki bir propertye başka bir propertiden ulaşmaya çalışalım.
+    Daha önceki derste template ile instance arasındaki iletişimi gördük. Şimdi instance içerisindeki bir propertye başka bir propertiden ulaşmaya çalışalım.
 
  -->
 
@@ -28,7 +28,7 @@
 
    <!-- <script>
 
-    new Vue({                                                              Template  & İnstense 
+    new Vue({                                                              Template  & instance 
         el : "#app",
         data : {
             title : "VueJS Template yapısını kavrayalım",
@@ -67,9 +67,9 @@
 
     Diye çalıştırırsak herhangi bir cevap alamazsanız.Burada bir durum söz konusu, nedir bu ?
 
-        Vue intense ile vue template arasındaki çalışma farkından kaynaklı biz vue template içeirisinde direk data olmadan yada başka bir anahtar kelime olmadan direk title yazdığımızda vue instense bunu anlıyor ve burada bir proxy oluşturuyor.
-        Proxy oluşturarak title direk yazdırmamızı sağlıyor.Fakat aynı şekilde vue instense içerisindeki her hangi bir propertyi başka bir property içerisinden title ulaşmak istersek direk title gibi vey ahello gibi kelimeler ifade kullanmamalıyız
-        Bu durumda "this" belirtecini kullanırız. This anahtar kelimesi aslında bize vue instense vern anahtar kelimedir. This dediğimiz zaman vue instense içerisindeki bulunan title prtorprtye denk geliyor , onu bana getir komuta veriyor.
+        Vue instance ile vue template arasındaki çalışma farkından kaynaklı biz vue template içeirisinde direk data olmadan yada başka bir anahtar kelime olmadan direk title yazdığımızda vue instance bunu anlıyor ve burada bir proxy oluşturuyor.
+        Proxy oluşturarak title direk yazdırmamızı sağlıyor.Fakat aynı şekilde vue instance içerisindeki her hangi bir propertyi başka bir property içerisinden title ulaşmak istersek direk title gibi veya hello gibi kelimeler ifade kullanmamalıyız
+        Bu durumda "this" belirtecini kullanırız. This anahtar kelimesi aslında bize vue instance vern anahtar kelimedir. This dediğimiz zaman vue instense içerisindeki bulunan title propertye denk geliyor , onu bana getir komuta veriyor.
         
         yani return this.title dediğimiz zaman çıktı olarak " Hello World " vermeli.
 
