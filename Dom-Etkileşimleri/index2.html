@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> VueJS Template Syntax ve Vue instance birlikte nasıl çalışır?</title>
+</head>
+<body>
+    
+
+<div id="app">
+    <p>
+        {{ hello() }}
+    </p>
+</div>
+
+
+<!-- 
+    Daha önceki derste template ile instense arasındaki iletişimi gördük. Şimdi İnstense içerisindeki bir propertye başka bir propertiden ulaşmaya çalışalım.
+
+ -->
+
+
+
+    <!-- Vue.js Link -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+   <!-- <script>
+
+    new Vue({                                                              Template  & İnstense 
+        el : "#app",
+        data : {
+            title : "VueJS Template yapısını kavrayalım",
+        },
+        methods : {
+            hello : function() {
+                return "Merhabalar Özlem Özdemir"
+            }
+        }
+    });
+   </script> -->
+    
+
+
+   <script>
+    new Vue ({
+        el : '#app',
+        data : {
+            title : "Hello World",
+        },
+        methods : {
+            hello : function (){
+                return this.title;
+            }
+        }
+    })
+   </script>
+
+
+   <!--  
+    methods : {
+            hello : function (){
+                return title;
+            }
+        }
+
+    Diye çalıştırırsak herhangi bir cevap alamazsanız.Burada bir durum söz konusu, nedir bu ?
+
+        Vue intense ile vue template arasındaki çalışma farkından kaynaklı biz vue template içeirisinde direk data olmadan yada başka bir anahtar kelime olmadan direk title yazdığımızda vue instense bunu anlıyor ve burada bir proxy oluşturuyor.
+        Proxy oluşturarak title direk yazdırmamızı sağlıyor.Fakat aynı şekilde vue instense içerisindeki her hangi bir propertyi başka bir property içerisinden title ulaşmak istersek direk title gibi vey ahello gibi kelimeler ifade kullanmamalıyız
+        Bu durumda "this" belirtecini kullanırız. This anahtar kelimesi aslında bize vue instense vern anahtar kelimedir. This dediğimiz zaman vue instense içerisindeki bulunan title prtorprtye denk geliyor , onu bana getir komuta veriyor.
+        
+        yani return this.title dediğimiz zaman çıktı olarak " Hello World " vermeli.
+
+
+
+        <div id="app">
+            <p> {{ title }} </p>
+        </div>
+
+
+   -->
+   
+
+
+</body>
+</html>
