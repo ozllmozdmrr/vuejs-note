@@ -26,9 +26,9 @@
     <!-- Vue.js Link -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-   <!-- <script>
+ <!-- <script>
 
-    new Vue({                                                              Template  & instance 
+     new Vue({                                                           
         el : "#app",
         data : {
             title : "VueJS Template yapısını kavrayalım",
@@ -40,22 +40,23 @@
         }
     });
    </script> -->
-    
+   
 
 
-   <script>
+ <script>
     new Vue ({
         el : '#app',
         data : {
-            title : "Hello World",
+            title : "Merhaba Arkadaşlar,",
+            description : "Vue.js eğitim notlarımı incelemeyi unutmayın.",
         },
         methods : {
             hello : function (){
-                return this.title;
+                return this.title + this.description ;
             }
         }
     })
-   </script>
+   </script> 
 
 
    <!--  
@@ -71,7 +72,7 @@
         Proxy oluşturarak title direk yazdırmamızı sağlıyor.Fakat aynı şekilde vue instance içerisindeki her hangi bir propertyi başka bir property içerisinden title ulaşmak istersek direk title gibi veya hello gibi kelimeler ifade kullanmamalıyız
         Bu durumda "this" belirtecini kullanırız. This anahtar kelimesi aslında bize vue instance vern anahtar kelimedir. This dediğimiz zaman vue instense içerisindeki bulunan title propertye denk geliyor , onu bana getir komuta veriyor.
         
-        yani return this.title dediğimiz zaman çıktı olarak " Hello World " vermeli.
+        yani return this.title dediğimiz zaman çıktı olarak " Merhaba Arkadaşlar " vermeli.
 
 
 
