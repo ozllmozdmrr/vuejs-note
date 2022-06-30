@@ -7,7 +7,25 @@
     <title> Directive Kullanımı </title>
 </head>
 <body>
-    
+        <!-- Directive Nedir
+                Bize vue.js tatafından işlem yapmamızı sağlayan tanımlamalar diyebiliriz.Vue.js kendi içerisinde bir çok ihtiyacımız olabilecek bir çok işlemi tanımlamalara sahip.
+                   
+                v-bind : Bizim herhangi bir attribute direk vue.js  instance bir propertyi bağlamamızı sağlayan directivedir.Directive ise bize küçük küçük attribute gibi tanımlamalarla vue instance iş yaptırmayı sağlayan yapılardır.
+
+                v-once : Html üzerinde süslü parantezler içerisinde bulunan değişken, script kısmında data içerisindeki değeri ne zaman değişirse değişecektir ancak v-once kullandığımızda değerin bir defa kullanılmasını sağlayabiliriz.Kısaca v-once ilk render işlemi sonrasında html üzerinde verinin aynı kalmasını sağlar .
+
+                v-html:Vue.js script tarafında yazılan html kodlarını düz metin olarak yorumlar ve çalışamaz hale getirir bunu önlemek için v-html kullanılır.
+
+                (!)Süslü parantezler içerisine yazılan herhangi bir property string olarak algılanır.
+
+                v-on: Event bağlamak için kullanırız.
+
+
+        -->
+
+
+
+
 
 <div id="app">
     <p>{{ hello() }} <a v-bind:href="link">Link</a></p>     
