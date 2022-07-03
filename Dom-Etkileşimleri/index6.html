@@ -13,12 +13,27 @@
     <div id="app">
         <p v-once>{{ title }}</p>
     <p>{{ hello() }} <a v-bind:href="link">Link</a></p>     
+    <p  v-html="blogLink"></p>
  </div>
        
     <!-- Vue.js Link -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
+    <!-- 
 
+        <p> {{ blogLink }}</p>
+
+        blogLink : "<a href='https://youtube.com'> Link </a>",
+
+        Bunun çıktısı karşıma gelmez çünkü vue.js burada html kodlarını direk yazılmış, html kodlarını escape eder yani html kodlarını çalışamaz hale getirir.
+
+        Süslü parantez içerisine yazmış olduğumuz herhangi bir propertiden gelen veriyi stringe olarak yazar.Burada ki html kodu olmasına rağmen sanki bi stringmiş gibi yazar. Bunu nasıl yaparız ??
+
+        <p> {{ blogLink }}</p> yerine başka bir directive olan "v-html" kullanırız. 
+        
+        <p v-html="blogLİnk"></p> yazdığımız anda linki aktarır.
+
+     -->
 
  <script>
     new Vue ({
@@ -27,6 +42,7 @@
             title : "Merhaba Arkadaşlar,",
             description : "Vue.js eğitim notlarımı incelemeyi unutmayın.",
             link : "https://www.linkedin.com/in/ozllmozdmrr/",
+            blogLink : "<a href='https://youtube.com'> Link </a>",
         },
         methods : {
             hello : function (){
