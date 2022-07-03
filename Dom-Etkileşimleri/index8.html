@@ -21,13 +21,17 @@
 
 
         <p> {{ counter}}</p>
+
+        <!-- Burada koordinatları göstericeğiz -->
+        <p v-on:mousemove="updateCoords"> Koordinat : {{x}},{{y}}</p>
     </div>
-    
+
     <!-- 
-        İlk olarak bu buttona tıklanıp tıklanmadığını kontrol etmemiz, vue.js ile kontrol etmemiz gerekiyor ki karşılık alabilelim.
-        "v-on" Anahatar kelimesi  eventleri bint(bağlamak) için kullanırız.
+       Dom tarafından bize sağlanan bir diğer özellik event argümanı, yani bu event objesi bize bazı bilgiler sunuyor.Tıkladığımız elementle ilgili ve buna benzer örnekler sunabiliyor.
+
+
      -->
-   
+    
     <!-- Vue.js Link -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
@@ -35,7 +39,9 @@
         new Vue ({
             el : "#app",
             data : {
-                counter : 0
+                counter : 0,
+                x : 0,
+                y : 0,
             },
             methods : {
                 showAlert : function() {
@@ -46,6 +52,12 @@
         //  İkinci yol --- fonksiyon 
                 increaseCounter : function() {
                     this.counter++;
+                }, 
+
+
+                updateCoords : function(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
                 }
             }
         })
