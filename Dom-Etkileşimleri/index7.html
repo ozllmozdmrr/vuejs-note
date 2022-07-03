@@ -7,14 +7,49 @@
     <title> VueJS ile Event Dinlemek</title>
 </head>
 <body>
+    <div id="app">
+        <button v-on:click="showAlert">Alert Göster</button>
+
+        <!-- Butona tıkladığımız sürece counterın değeri bir artıcaktır.
+        İki yol vardır!-->
+
+        <!-- İlk yol javascript  -->
+        <button v-on:click="counter++">Arttır</button>
+
+        <!-- İkinci yol --- fonksiyon  -->
+        <button v-on:click="increaseCounter">Arttır</button>
+
+
+        <p> {{ counter}}</p>
+    </div>
     
-    
-    
+    <!-- 
+        İlk olarak bu buttona tıklanıp tıklanmadığını kontrol etmemiz, vue.js ile kontrol etmemiz gerekiyor ki karşılık alabilelim.
+        "v-on" Anahatar kelimesi  eventleri bint(bağlamak) için kullanırız.
+     -->
    
     <!-- Vue.js Link -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
- 
+    <script>
+        new Vue ({
+            el : "#app",
+            data : {
+                counter : 0
+            },
+            methods : {
+                showAlert : function() {
+                    alert();
+                },
+
+                
+        //  İkinci yol --- fonksiyon 
+                increaseCounter : function() {
+                    this.counter++;
+                }
+            }
+        })
+    </script>
 
     
 </body>
