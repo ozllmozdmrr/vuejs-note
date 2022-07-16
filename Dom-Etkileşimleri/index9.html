@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Event içerisinde argüman göndermek</title>
+
+        <!-- 
+       Bu notta istediğimiz methoda kendi parametremizi göndeririz ona bakacağız.
+
+
+     -->
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="showAlert('Dikkat!')">Alert Göster</button>
+        <!--
+            
+            <button v-on:click="showAlert('Dikkat!')">Alert Göster</button>
+
+                Fonksiyonun içerisine string olarak "Dikkat!" gönderdik 
+        
+
+
+            event objesini kullanmak için ikinci parametrede "$event" alabiliriz. 
+            aslında herhangi bir şekilde yazmamıza gerek kalmadan eventi kendisi gönderiyor ama paramterte göndericeksek  "$event" ile hangi sırada göndermek istediyorsak fonksiyona öyle gönderebiliriz.
+        -->
+    
+      
+        <button v-on:click="increaseCounter(10, $event)">Arttır</button>
+
+        
+        <p> {{ counter}}</p>
+    </div>
+
+    
+    <!-- Vue.js Link -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+    
+    <script>
+        new Vue ({
+            el : "#app",
+            data : {
+                counter : 0,
+                x : 0,
+                y : 0,
+            },
+            methods : {
+                showAlert : function(name) {   //Argümanı buradan alıyoruz 
+                    alert(name);   // "name" kullanarak alertin içerisine "Dikkat!" yazdırabiliyoruz.
+                },
+                increaseCounter: function(step){
+                    this.counter+=step;
+
+                    // this.counter = this.counter + step ; 
+                }
+            }
+
+      
+            
+
+
+        })
+    </script>
+
+    
+</body>
+</html>
