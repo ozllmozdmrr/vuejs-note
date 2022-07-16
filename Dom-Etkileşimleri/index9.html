@@ -23,15 +23,20 @@
         
 
 
-            event objesini kullanmak için ikinci parametrede "$event" alabiliriz. 
+            Event objesini kullanmak için ikinci parametrede "$event" alabiliriz. 
             aslında herhangi bir şekilde yazmamıza gerek kalmadan eventi kendisi gönderiyor ama paramterte göndericeksek  "$event" ile hangi sırada göndermek istediyorsak fonksiyona öyle gönderebiliriz.
+
+
+
         -->
     
       
         <button v-on:click="increaseCounter(10, $event)">Arttır</button>
 
-        
         <p> {{ counter}}</p>
+
+           <!-- Burada koordinatları göstericeğiz -->
+           <p v-on:mousemove="updateCoords(6, $event)"> Koordinat : {{x}},{{y}}</p>
     </div>
 
     
@@ -52,13 +57,21 @@
                 showAlert : function(name) {   //Argümanı buradan alıyoruz 
                     alert(name);   // "name" kullanarak alertin içerisine "Dikkat!" yazdırabiliyoruz.
                 },
+
                 increaseCounter: function(step){
                     this.counter+=step;
 
                     // this.counter = this.counter + step ; 
-                }
-            }
+               
+                },
 
+                updateCoords : function(step,event) {
+                    this.counter += step;
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                }
+            },
+               
       
             
 
