@@ -4,87 +4,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  Event Modifier</title>
-
-        <!-- 
-      Modifier Nedir ? 
-
-      Modifier bir fiilin kendine has özelliklerini yapmamızı engelleyen , yasaklayan özelliktir diyebiliriz.
-      Mesela a elementine tıkladığımızda varsayılan davranışı yani "a href " içerisine belirttiğimiz linkle gitmesidir biz bunu engellemiyi görüceğiz.
-
-     -->
+    <title> Vue instance içerisindeki data property bilgilerine ulaşmak</title>
 </head>
 <body>
-    <div id="app">
-        <button v-on:click="showAlert('Dikkat!')">Alert Göster</button>
-        <!--
-            
-            <button v-on:click="showAlert('Dikkat!')">Alert Göster</button>
-
-                Fonksiyonun içerisine string olarak "Dikkat!" gönderdik 
-        
-
-
-            Event objesini kullanmak için ikinci parametrede "$event" alabiliriz. 
-            aslında herhangi bir şekilde yazmamıza gerek kalmadan eventi kendisi gönderiyor ama paramterte göndericeksek  "$event" ile hangi sırada göndermek istediyorsak fonksiyona öyle gönderebiliriz.
-
-            2.Görev :
-            Gizli kısmının üzerine geldiğimde herhangi bir şekilde "updateCoords" isimli methodu çalışmasın ve koordinatlar burada update olmasın.
-                 <span v-on:mousemove.stop>Gizli Kısım</span>   Yani mousemove eventini dinle diyoruz fakat bunu dinlereken stop yap.
-
-        -->
     
-      
-        <button v-on:click="increaseCounter(10, $event)">Arttır</button>
 
-        <p> {{ counter}}</p>
+<div id="app">
+    <p>
+        {{ hello() }}
+    </p>
+</div>
 
-           <!-- Burada koordinatları göstericeğiz -->
-           <p v-on:mousemove="updateCoords(6, $event)"> Koordinat : {{x}},{{y}}
-            <span v-on:mousemove.stop>Gizli Kısım</span>
-           </p>
-    </div>
 
-    
+<!-- 
+    Daha önceki derste template ile instance arasındaki iletişimi gördük. Şimdi instance içerisindeki bir propertye başka bir propertiden ulaşmaya çalışalım.
+
+ -->
+
+
+
     <!-- Vue.js Link -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
+ <!-- <script>
 
-    
-    <script>
-        new Vue ({
-            el : "#app",
-            data : {
-                counter : 0,
-                x : 0,
-                y : 0,
-            },
-            methods : {
-                showAlert : function(name) {   //Argümanı buradan alıyoruz 
-                    alert(name);   // "name" kullanarak alertin içerisine "Dikkat!" yazdırabiliyoruz.
-                },
-
-                increaseCounter: function(step){
-                    this.counter+=step;
-
-                    // this.counter = this.counter + step ; 
-               
-                },
-
-                updateCoords : function(step,event) {
-                    this.counter += step;
-                    this.x = event.clientX;
-                    this.y = event.clientY;
-                }
-            },
-               
-      
-            
+     new Vue({                                                           
+        el : "#app",
+        data : {
+            title : "VueJS Template yapısını kavrayalım",
+        },
+        methods : {
+            hello : function() {
+                return "Merhabalar Özlem Özdemir"
+            }
+        }
+    });
+   </script> -->
+   
 
 
-        })
-    </script>
+ <script>
+    new Vue ({
+        el : '#app',
+        data : {
+            title : "Merhaba Arkadaşlar,",
+            description : "Vue.js eğitim notlarımı incelemeyi unutmayın.",
+        },
+        methods : {
+            hello : function (){
+                return this.title + this.description ;
+            }
+        }
+    })
+   </script> 
 
-    
+
+   <!--  
+    methods : {
+            hello : function (){
+                return title;
+            }
+        }
+
+    Diye çalıştırırsak herhangi bir cevap alamazsanız.Burada bir durum söz konusu, nedir bu ?
+
+        Vue instance ile vue template arasındaki çalışma farkından kaynaklı biz vue template içeirisinde direk data olmadan yada başka bir anahtar kelime olmadan direk title yazdığımızda vue instance bunu anlıyor ve burada bir proxy oluşturuyor.
+        Proxy oluşturarak title direk yazdırmamızı sağlıyor.Fakat aynı şekilde vue instance içerisindeki her hangi bir propertyi başka bir property içerisinden title ulaşmak istersek direk title gibi veya hello gibi kelimeler ifade kullanmamalıyız
+        Bu durumda "this" belirtecini kullanırız. This anahtar kelimesi aslında bize vue instance vern anahtar kelimedir. This dediğimiz zaman vue instense içerisindeki bulunan title propertye denk geliyor , onu bana getir komuta veriyor.
+        
+        yani return this.title dediğimiz zaman çıktı olarak " Merhaba Arkadaşlar " vermeli.
+
+        <div id="app">
+            <p> {{ title }} </p>
+        </div>
+
+
+   -->
+   
+   <!--  NOOOOOOOOOOOT
+
+                    "this" anahtar kelimesiyle instance içerisindeki herhangi propertye ulaşabiliriz.
+
+    -->
+
+
 </body>
 </html>
