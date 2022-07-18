@@ -25,7 +25,19 @@
            <p v-on:mousemove="updateCoords(6, $event)"> Koordinat : {{x}},{{y}}
             <span v-on:mousemove.stop>Gizli Kısım</span>
            </p>
-           <input type="text" >
+
+
+           <!-- Görev 
+            İnputa bir şeyler yazıldığında bir event oluşuyor.Bu eventi yakalamamız gerekiyor, nedir bu ? 
+                Yazdığımız veriyle birlikte aksiyon alabilecek bir yapı . Bunu v-on elementi yakalamak için kullandığımız directivedi.
+
+                v-on:keyup --- Tuşa bastıkdan sonra çalışacak eventi alıcaktır.
+
+            
+            -->
+
+           <input type="text" v-on:keyup.enter.space="showAlert2">  
+           <!-- .enter.space  Zincir -->
     </div>
 
     
@@ -58,8 +70,17 @@
                     this.counter += step;
                     this.x = event.clientX;
                     this.y = event.clientY;
+                },
+                
+                showAlert2  : function (){
+                    alert("Sakin Yaz !!");
                 }
+                
+                // showAlert2  : function (event){
+                //     alert(event.target.value);
+                // }
             },
+
                
 
         })
