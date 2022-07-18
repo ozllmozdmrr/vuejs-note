@@ -30,6 +30,8 @@
 
             2.Görev :
             Gizli kısmının üzerine geldiğimde herhangi bir şekilde "updateCoords" isimli methodu çalışmasın ve koordinatlar burada update olmasın.
+                 <span v-on:mousemove.stop>Gizli Kısım</span>   Yani mousemove eventini dinle diyoruz fakat bunu dinlereken stop yap.
+
         -->
     
       
@@ -39,7 +41,7 @@
 
            <!-- Burada koordinatları göstericeğiz -->
            <p v-on:mousemove="updateCoords(6, $event)"> Koordinat : {{x}},{{y}}
-            <span>Gizli Kısım</span>
+            <span v-on:mousemove.stop>Gizli Kısım</span>
            </p>
     </div>
 
