@@ -17,24 +17,6 @@
 <body>
     <div id="app">
         <button v-on:click="showAlert('Dikkat!')">Alert Göster</button>
-        <!--
-            
-            <button v-on:click="showAlert('Dikkat!')">Alert Göster</button>
-
-                Fonksiyonun içerisine string olarak "Dikkat!" gönderdik 
-        
-
-
-            Event objesini kullanmak için ikinci parametrede "$event" alabiliriz. 
-            aslında herhangi bir şekilde yazmamıza gerek kalmadan eventi kendisi gönderiyor ama paramterte göndericeksek  "$event" ile hangi sırada göndermek istediyorsak fonksiyona öyle gönderebiliriz.
-
-            2.Görev :
-            Gizli kısmının üzerine geldiğimde herhangi bir şekilde "updateCoords" isimli methodu çalışmasın ve koordinatlar burada update olmasın.
-                 <span v-on:mousemove.stop>Gizli Kısım</span>   Yani mousemove eventini dinle diyoruz fakat bunu dinlereken stop yap.
-
-        -->
-    
-      
         <button v-on:click="increaseCounter(10, $event)">Arttır</button>
 
         <p> {{ counter}}</p>
@@ -43,6 +25,7 @@
            <p v-on:mousemove="updateCoords(6, $event)"> Koordinat : {{x}},{{y}}
             <span v-on:mousemove.stop>Gizli Kısım</span>
            </p>
+           <input type="text" >
     </div>
 
     
@@ -78,9 +61,6 @@
                 }
             },
                
-      
-            
-
 
         })
     </script>
