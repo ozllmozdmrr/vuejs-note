@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Template içerisinde JavaScript Kodu yazmak</title>
+
+       
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="showAlert('Dikkat!')">Alert Göster</button>
+        <button v-on:click="increaseCounter(10, $event)">Arttır</button>
+        <button v-on:click="counter++">Arttır</button>
+        <button v-on:click="counter+=2">2 Arttır</button>  <!--  Template içerisinde JavaScript Kodu yazmak  -->
+        
+        <!--- Vue.js template içerisine javascript kodu yazmamıza izin veriyor ama bunu bir sınırı var:
+                    
+            !!!!!!  BİR SATIRLIK KOD OLMAK ZORUNDA !!!!!
+            !!!!!!  ; İLE BAŞKA BİR İFADE KULLANILMAZ !!!!!!
+        
+        -->
+
+        <p>{{ counter }}</p>
+        <p> {{ counter > 30 ? "Counter 30'dan büyüktür" : "Counter 30'dan küçüktür"}}</p>
+
+           <!-- Burada koordinatları göstericeğiz -->
+           <p v-on:mousemove="updateCoords(6, $event)"> Koordinat : {{x}},{{y}}
+            <span v-on:mousemove.stop>Gizli Kısım</span>
+           </p>
+
+
+           
+
+           <input type="text" v-on:keyup.enter.space="showAlert2">  
+           <!-- .enter.space  Zincir -->
+    </div>
+
+    
+    <!-- Vue.js Link -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+    
+    <script>
+        new Vue ({
+            el : "#app",
+            data : {
+                counter : 0,
+                x : 0,
+                y : 0,
+            },
+            methods : {
+                showAlert : function(name) {   //Argümanı buradan alıyoruz 
+                    alert(name);   // "name" kullanarak alertin içerisine "Dikkat!" yazdırabiliyoruz.
+                },
+
+                increaseCounter: function(step){
+                    this.counter+=step;
+
+                    // this.counter = this.counter + step ; 
+               
+                },
+
+                updateCoords : function(step,event) {
+                    this.counter += step;
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                
+                showAlert2  : function (){
+                    alert("Sakin Yaz !!");
+                }
+                
+                // showAlert2  : function (event){
+                //     alert(event.target.value);
+                // }
+            },
+
+               
+
+        })
+    </script>
+
+    
+</body>
+</html>
