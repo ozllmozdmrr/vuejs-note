@@ -12,20 +12,20 @@
         <!-- 1) Butona tıklandığında bir alert kutusu çıkartınız -->
         <div>
             <button v-on:click="alert('Ödev 2 sayesinde pekiştiriyoruz')">Alert Göster</button>
-            
+
         </div>
 
         <!--  2) "keydown" event'ini dinleyerek value değilkeni içerisinde yazdığınız veriyi saklayın
             ipucu: event.target.value size yazdığınız değeri verebilir.
         -->
         <div>
-            <input type="text">
+            <input type="text" v-on:keydown="updateValue">
             <p>{{ value }}</p>
         </div>
         <!-- 3) 2.Uygulamayı düzenlyerek eğer keywdown ENTER ise yazdığınız verinin value değerine aktarılmasını sağlayın -->
         <div>
-            <input type="text">
-            <p>{{ velua }}</p>
+            <input type="text" v-on:keydown.enter="updateValue">
+        <p>{{ value }}</p>
         </div>
     </div>
     <!-- Vue.js Link -->
@@ -36,14 +36,17 @@
         new Vue ({
             el: '#practice',
             data: { 
-                value: 'Merhaba'
+                value: ''
             },
             methods : {
-                alert: function(name) {
-                    alert(name);
-                },
-            }
-        })
+			alert: function(name){
+				alert(name);
+			},
+			updateValue : function(event){
+				this.value = event.target.value;
+			}
+		}
+        });
 
 
 
