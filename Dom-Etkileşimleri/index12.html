@@ -23,7 +23,8 @@
         -->
 
         <p>{{ counter }}</p>
-        <p> {{ counter > 30 ? "Counter 30'dan büyüktür" : "Counter 30'dan küçüktür"}}</p>
+        <p>{{ (counter * 100)/2 }}</p>
+        <p> {{ counter > 20 ? "Counter 20'dan büyüktür" : "Counter 20'dan küçüktür"}}</p>
 
            <!-- Burada koordinatları göstericeğiz -->
            <p v-on:mousemove="updateCoords(6, $event)"> Koordinat : {{x}},{{y}}
